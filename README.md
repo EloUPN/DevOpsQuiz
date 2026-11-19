@@ -26,3 +26,6 @@ Créer une tâche Pipeline « Pipeline script from SCM », utiliser Git, branche
 Pour la démonstration, build/tests sur toutes les branches; déploiement seulement sur main.
 Le conteneur devopsquiz-prod est volontairement créé sans démarrage : le quiz est interactif.
 Démarrer une partie avec `docker run --rm -it -v devopsquiz-scores:/data devopsquiz:latest`.
+
+## Vérification CI Jenkins
+Test du déclenchement automatique du pipeline après un git push.
