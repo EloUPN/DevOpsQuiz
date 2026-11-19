@@ -6,3 +6,4 @@
 
 ## v1.1.0
 - Amélioration des messages de fin de quiz, en mieux.
+- Test du déclenchement automatique Jenkins (scan toutes les minutes).
