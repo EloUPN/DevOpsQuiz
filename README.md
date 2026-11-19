@@ -1,2 +1,0 @@
-# DevOpsQuiz
-Projet DevOps
