@@ -5,3 +5,6 @@ data/
 *.log
 .idea/
 .vscode/
+
+# Metadonnees Windows
+*:Zone.Identifier
