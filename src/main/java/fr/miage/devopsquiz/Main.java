@@ -23,7 +23,7 @@ public final class Main {
                 if (!in.hasNextLine()) return;
                 switch (in.nextLine().trim()) {
                     case "1" -> play(in);
-                    case "2" -> System.out.println("10 questions, 4 réponses (A-D), 1 point par bonne réponse.");
+                    case "2" -> System.out.println("10 questions, 4 réponses (A-D), 1 point par bonne réponse, le score sera enregistré et consultable");
                     case "3" -> { try { STORE.bestScores().forEach(System.out::println); }
                                    catch (IOException e) { LOG.log(Level.WARNING, "Lecture des scores impossible", e); } }
                     case "4" -> { LOG.info("Arrêt DevOpsQuiz"); return; }
