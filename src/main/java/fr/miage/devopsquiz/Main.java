@@ -75,7 +75,7 @@ public final class Main {
     		);
 	    }
         }
-        System.out.println("Note: " + score + "/10 - " + (score*10) + "% - " + (score >= 7 ? "Bravo !" : "Continuez !"));
+        System.out.println("Note: " + score + "/10 - " + (score*10) + "% - " + QuizEngine.message(score));
         try { STORE.save(pseudo, score); LOG.info("Fin de partie : pseudo=" + pseudo + " score=" + score); }
         catch (IOException | IllegalArgumentException e) { LOG.log(Level.WARNING,"Sauvegarde impossible",e); }
 	System.out.println("\n===== CORRECTION DU QUIZ =====");
