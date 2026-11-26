@@ -4,5 +4,13 @@
 - Menu, catégories, 10 questions, score et persistance.
 - Compilation javac, tests JUnit, Jenkins et Docker.
 
-## v1.1.0 (à préparer)
-- Exemple : amélioration des messages de fin de quiz.
+## v1.1.0
+- Ajout d'un récapitulatif des erreurs en fin de quiz.
+
+- Affichage des réponses incorrectes du joueur.
+
+- Affichage des bonnes réponses avec leur contenu.
+
+- Affichage du nombre total d'erreurs.
+
+- Message de félicitations en cas de score parfait.
