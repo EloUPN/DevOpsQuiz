@@ -14,6 +14,15 @@ public final class QuizEngine {
         return input.trim().toUpperCase(Locale.ROOT).charAt(0);
     }
     public static boolean correct(Question q, char answer) { return q.answer() == answer; }
+
+    public static String message(int score) {
+        if (score < 0 || score > 10) throw new IllegalArgumentException("Score entre 0 et 10");
+        if (score == 10) return "Parfait !";
+        if (score >= 7) return "Bravo !";
+        if (score >= 4) return "Pas mal, continuez !";
+        return "Courage, révisez et réessayez !";
+    }
+
     public static int score(List<Question> qs, List<Character> answers) {
         if (qs.size() != answers.size()) throw new IllegalArgumentException("Tailles différentes");
         int points = 0;
