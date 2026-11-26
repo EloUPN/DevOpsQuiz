@@ -5,4 +5,12 @@
 - Compilation javac, tests JUnit, Jenkins et Docker.
 
 ## v1.1.0
-- Amélioration des messages de fin de quiz, en mieux.
+- Ajout d'un récapitulatif des erreurs en fin de quiz.
+
+- Affichage des réponses incorrectes du joueur.
+
+- Affichage des bonnes réponses avec leur contenu.
+
+- Affichage du nombre total d'erreurs.
+
+- Message de félicitations en cas de score parfait.

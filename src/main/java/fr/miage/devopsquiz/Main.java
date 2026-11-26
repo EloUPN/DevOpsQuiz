@@ -48,6 +48,7 @@ public final class Main {
         if (!QuizEngine.validCategory(category)) { System.out.println("Catégorie invalide."); return; }
         List<Question> questions = QuizEngine.selectQuestions(QuestionBank.all(), category, System.nanoTime());
         int score = 0;
+	List<String> erreurs = new ArrayList<>();
         for (int i = 0; i < questions.size(); i++) {
             Question q = questions.get(i);
             System.out.println("Question " + (i+1) + "/10 : " + q.title());
@@ -59,11 +60,36 @@ public final class Main {
                 try { answer = QuizEngine.parseChoice(in.nextLine()); break; }
                 catch (IllegalArgumentException e) { System.out.println(e.getMessage()); }
             }
-            if (QuizEngine.correct(q, answer)) { score++; System.out.println("Correct !"); }
-            else System.out.println("Incorrect. Bonne réponse : " + q.answer());
+            if (QuizEngine.correct(q, answer)) {
+    		score++;
+    		System.out.println("Correct !");
+	    } else {
+    		System.out.println("Incorrect. Bonne réponse : " + q.answer());
+
+    		erreurs.add(
+        	"Question " + (i + 1) + " : " + q.title()
+        	+ "\nVotre réponse : " + answer
+        	+ " - " + q.choices()[answer - 'A']
+        	+ "\nBonne réponse : " + q.answer()
+        	+ " - " + q.choices()[q.answer() - 'A']
+    		);
+	    }
         }
         System.out.println("Note: " + score + "/10 - " + (score*10) + "% - " + (score >= 7 ? "Bravo !" : "Continuez !"));
         try { STORE.save(pseudo, score); LOG.info("Fin de partie : pseudo=" + pseudo + " score=" + score); }
         catch (IOException | IllegalArgumentException e) { LOG.log(Level.WARNING,"Sauvegarde impossible",e); }
+	System.out.println("\n===== CORRECTION DU QUIZ =====");
+
+	if (erreurs.isEmpty()) {
+	    System.out.println("Bravo ! Aucune erreur.");
+	} else {
+	    System.out.println("Nombre d'erreurs : " + erreurs.size());
+	
+	    for (String erreur : erreurs) {
+	        System.out.println("\n" + erreur);
+	    }
+	}
+
+	System.out.println("==============================");
     }
 }
