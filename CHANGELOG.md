@@ -15,5 +15,4 @@
 
 - Message de félicitations en cas de score parfait.
 
-## v1.2.0
-- Message de fin différent selon le score (4 tranches : 0-3, 4-6, 7-9, 10), avec 5 tests.
+
